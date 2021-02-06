@@ -16,48 +16,57 @@
 
 import sys
 import platform
-from PySide6 import QtCore, QtGui, QtWidgets
-from PySide6.QtCore import (
-    QCoreApplication,
-    QPropertyAnimation,
-    QDate,
-    QDateTime,
-    QMetaObject,
-    QObject,
-    QPoint,
-    QRect,
-    QSize,
-    QTime,
-    QUrl,
-    Qt,
-    QEvent,
-)
-from PySide6.QtGui import (
-    QBrush,
-    QColor,
-    QConicalGradient,
-    QCursor,
-    QFont,
-    QFontDatabase,
-    QIcon,
-    QKeySequence,
-    QLinearGradient,
-    QPalette,
-    QPainter,
-    QPixmap,
-    QRadialGradient,
-)
-from PySide6.QtWidgets import *
 
-# GUI FILE
-from app_modules import *
+from PySide6.QtWidgets import QMainWindow, QApplication, QHeaderView
+from PySide6.QtGui import QFontDatabase
+from PySide6.QtCore import QSize, QEvent, Qt
+
+from ui_main import Ui_MainWindow
+
+# import methods
+from ui_methods import (
+    removeTitleBar,
+    labelTitle,
+    labelDescription,
+    maximize_restore,
+    enableMaximumSize,
+    toggleMenu,
+    addNewMenu,
+    selectMenu,
+    deselectMenu,
+    selectStandardMenu,
+    resetStyle,
+    labelPage,
+    userIcon,
+    uiDefinitions,
+)
 
 
 class MainWindow(QMainWindow):
+    # load methods
+    removeTitleBar = removeTitleBar
+    labelTitle = labelTitle
+    labelDescription = labelDescription
+    maximize_restore = maximize_restore
+    enableMaximumSize = enableMaximumSize
+    toggleMenu = toggleMenu
+    addNewMenu = addNewMenu
+    selectMenu = selectMenu
+    deselectMenu = deselectMenu
+    selectStandardMenu = selectStandardMenu
+    resetStyle = resetStyle
+    labelPage = labelPage
+    userIcon = userIcon
+    uiDefinitions = uiDefinitions
+
+    # init
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.STATE = 0
+        self.TITLE_BAR = True
+        self.count = 1
 
         ## PRINT ==> SYSTEM
         print("System: " + platform.system())
@@ -68,49 +77,44 @@ class MainWindow(QMainWindow):
         ########################################################################
 
         ## REMOVE ==> STANDARD TITLE BAR
-        UIFunctions.removeTitleBar(True)
+        self.removeTitleBar(False)
         ## ==> END ##
 
         ## SET ==> WINDOW TITLE
         self.setWindowTitle("Main Window - Python Base")
-        UIFunctions.labelTitle(self, "Main Window - Python Base")
-        UIFunctions.labelDescription(self, "Set text")
+        self.labelTitle("Main Window - Python Base")
+        self.labelDescription("Set text")
         ## ==> END ##
 
         ## WINDOW SIZE ==> DEFAULT SIZE
         startSize = QSize(1000, 720)
         self.resize(startSize)
         self.setMinimumSize(startSize)
-        # UIFunctions.enableMaximumSize(self, 500, 720)
+        # self.enableMaximumSize(500, 720)
         ## ==> END ##
 
         ## ==> CREATE MENUS
         ########################################################################
 
         ## ==> TOGGLE MENU SIZE
-        self.ui.btn_toggle_menu.clicked.connect(
-            lambda: UIFunctions.toggleMenu(self, 220, True)
-        )
+        self.ui.btn_toggle_menu.clicked.connect(lambda: self.toggleMenu(220, True))
         ## ==> END ##
 
         ## ==> ADD CUSTOM MENUS
         self.ui.stackedWidget.setMinimumWidth(20)
-        UIFunctions.addNewMenu(
-            self,
+        self.addNewMenu(
             "HOME",
             "btn_home",
             "url(:/16x16/icons/16x16/cil-home.png)",
             True,
         )
-        UIFunctions.addNewMenu(
-            self,
+        self.addNewMenu(
             "Add User",
             "btn_new_user",
             "url(:/16x16/icons/16x16/cil-user-follow.png)",
             True,
         )
-        UIFunctions.addNewMenu(
-            self,
+        self.addNewMenu(
             "Custom Widgets",
             "btn_widgets",
             "url(:/16x16/icons/16x16/cil-equalizer.png)",
@@ -119,7 +123,7 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         # START MENU => SELECTION
-        UIFunctions.selectStandardMenu(self, "btn_home")
+        self.selectStandardMenu("btn_home")
         ## ==> END ##
 
         ## ==> START PAGE
@@ -127,15 +131,15 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         ## USER ICON ==> SHOW HIDE
-        UIFunctions.userIcon(self, "SG", "", True)
+        self.userIcon("SG", "", True)
         ## ==> END ##
 
         ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
         ########################################################################
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
-            if UIFunctions.returStatus() == 1:
-                UIFunctions.maximize_restore(self)
+            if self.STATE == 1:
+                self.maximize_restore()
 
             # MOVE WINDOW
             if event.buttons() == Qt.LeftButton:
@@ -149,7 +153,7 @@ class MainWindow(QMainWindow):
 
         ## ==> LOAD DEFINITIONS
         ########################################################################
-        UIFunctions.uiDefinitions(self)
+        self.uiDefinitions()
         ## ==> END ##
 
         ########################################################################
@@ -165,9 +169,7 @@ class MainWindow(QMainWindow):
 
         ## ==> QTableWidget RARAMETERS
         ########################################################################
-        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.Stretch
-        )
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         ## ==> END ##
 
         ########################################################################
@@ -190,25 +192,25 @@ class MainWindow(QMainWindow):
 
         # PAGE HOME
         if btnWidget.objectName() == "btn_home":
-            print('btn_home')
+            print("btn_home")
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            UIFunctions.resetStyle(self, "btn_home")
-            UIFunctions.labelPage(self, "Home")
-            btnWidget.setStyleSheet(UIFunctions.selectMenu(btnWidget.styleSheet()))
+            self.resetStyle("btn_home")
+            self.labelPage("Home")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE NEW USER
         if btnWidget.objectName() == "btn_new_user":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            UIFunctions.resetStyle(self, "btn_new_user")
-            UIFunctions.labelPage(self, "New User")
-            btnWidget.setStyleSheet(UIFunctions.selectMenu(btnWidget.styleSheet()))
+            self.resetStyle("btn_new_user")
+            self.labelPage("New User")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
         # PAGE WIDGETS
         if btnWidget.objectName() == "btn_widgets":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_widgets)
-            UIFunctions.resetStyle(self, "btn_widgets")
-            UIFunctions.labelPage(self, "Custom Widgets")
-            btnWidget.setStyleSheet(UIFunctions.selectMenu(btnWidget.styleSheet()))
+            self.resetStyle("btn_widgets")
+            self.labelPage("Custom Widgets")
+            btnWidget.setStyleSheet(self.selectMenu(btnWidget.styleSheet()))
 
     ## ==> END ##
 
@@ -219,7 +221,7 @@ class MainWindow(QMainWindow):
     ## EVENT ==> MOUSE DOUBLE CLICK
     ########################################################################
     def eventFilter(self, watched, event):
-        if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
+        if watched == self.le and event.type() == QEvent.MouseButtonDblClick:
             print("pos: ", event.pos())
 
     ## ==> END ##
@@ -262,7 +264,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    QtGui.QFontDatabase.addApplicationFont("fonts/segoeui.ttf")
-    QtGui.QFontDatabase.addApplicationFont("fonts/segoeuib.ttf")
+    QFontDatabase.addApplicationFont("fonts/segoeui.ttf")
+    QFontDatabase.addApplicationFont("fonts/segoeuib.ttf")
     window = MainWindow()
     sys.exit(app.exec_())
