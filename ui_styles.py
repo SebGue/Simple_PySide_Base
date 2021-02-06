@@ -13,531 +13,543 @@
 ## https://doc.qt.io/qtforpython/licenses.html
 ##
 ################################################################################
+COLOR_01 = (27, 29, 35)
+COLOR_01a = (27, 29, 35, 160)
+
+COLOR_02 = (64, 71, 88)
+COLOR_03 = (33, 37, 43)
+COLOR_04 = (44, 49, 60)
+COLOR_05 = (85, 170, 255)
+COLOR_06 = (40, 40, 40)
+COLOR_07 = (91, 101, 124)
+
+COLOR_08 = (52, 59, 72)
+COLOR_09 = (55, 63, 77)
+
+COLOR_10 = (58, 66, 81)
+COLOR_11 = (94, 106, 130)
+COLOR_12 = (39, 44, 54)
+
+COLOR_13 = (55, 62, 76)
+COLOR_14 = (105, 180, 255)
+COLOR_15 = (65, 130, 195)
+
+
+COLOR_xxa = (39, 44, 54, 150)
 
 
 class Style:
 
-    style_bt_standard = """
-    QPushButton {
+    style_bt_standard = f"""
+    QPushButton {{
         background-image: ICON_REPLACE;
         background-position: left center;
         background-repeat: no-repeat;
         border: none;
-        border-left: 28px solid rgb(27, 29, 35);
-        background-color: rgb(27, 29, 35);
+        border-left: 28px solid rgb{COLOR_01};
+        background-color: rgb{COLOR_01};
         text-align: left;
         padding-left: 45px;
-    }
-    QPushButton[Active=true] {
+    }}
+    QPushButton[Active=true] {{
         background-image: ICON_REPLACE;
         background-position: left center;
         background-repeat: no-repeat;
         border: none;
-        border-left: 28px solid rgb(27, 29, 35);
-        border-right: 5px solid rgb(44, 49, 60);
-        background-color: rgb(27, 29, 35);
+        border-left: 28px solid rgb{COLOR_01};
+        border-right: 5px solid rgb{COLOR_04};
+        background-color: rgb{COLOR_01};
         text-align: left;
         padding-left: 45px;
-    }
-    QPushButton:hover {
-        background-color: rgb(33, 37, 43);
-        border-left: 28px solid rgb(33, 37, 43);
-    }
-    QPushButton:pressed {
-        background-color: rgb(85, 170, 255);
-        border-left: 28px solid rgb(85, 170, 255);
-    }
+    }}
+    QPushButton:hover {{
+        background-color: rgb{COLOR_03};
+        border-left: 28px solid rgb{COLOR_03};
+    }}
+    QPushButton:pressed {{
+        background-color: rgb{COLOR_05};
+        border-left: 28px solid rgb{COLOR_05};
+    }}
     """
 
-    style_main_window = (
-        "QMainWindow {background: transparent; }\n"
-        "QToolTip {\n"
-        "	color: #ffffff;\n"
-        "	background-color: rgba(27, 29, 35, 160);\n"
-        "	border: 1px solid rgb(40, 40, 40);\n"
-        "	border-radius: 2px;\n"
-        "}"
-    )
+    style_main_window = f"""
+    QMainWindow {{background: transparent; }}
+        QToolTip {{
+        color: #ffffff;
+        background-color: rgba{COLOR_01a};
+        border: 1px solid rgb{COLOR_06};
+        border-radius: 2px;
+    }}
+    """
 
-    style_frame_main = (
-        u"/* LINE EDIT */\n"
-        "QLineEdit {\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	border-radius: 5px;\n"
-        "	border: 2px solid rgb(27, 29, 35);\n"
-        "	padding-left: 10px;\n"
-        "}\n"
-        "QLineEdit:hover {\n"
-        "	border: 2px solid rgb(64, 71, 88);\n"
-        "}\n"
-        "QLineEdit:focus {\n"
-        "	border: 2px solid rgb(91, 101, 124);\n"
-        "}\n"
-        "\n"
-        "/* SCROLL BARS */\n"
-        "QScrollBar:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    height: 14px;\n"
-        "    margin: 0px 21px 0 21px;\n"
-        "	border-radius: 0px;\n"
-        "}\n"
-        "QScrollBar::handle:horizontal {\n"
-        "    background: rgb(85, 170, 255);\n"
-        "    min-width: 25px;\n"
-        "	border-radius: 7px\n"
-        "}\n"
-        "QScrollBar::add-line:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(55, 63, 77);\n"
-        "    width: 20px;\n"
-        "	border-top-right-radius: 7px;\n"
-        "    border-bottom-right-radius: 7px;\n"
-        "    subcontrol-position: right;\n"
-        "    subcontrol-origin: margin;\n"
-        "}\n"
-        "QScrollBar::sub-line:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(55, 63, 77);\n"
-        "    width: 20px;\n"
-        ""
-        "	border-top-left-radius: 7px;\n"
-        "    border-bottom-left-radius: 7px;\n"
-        "    subcontrol-position: left;\n"
-        "    subcontrol-origin: margin;\n"
-        "}\n"
-        "QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal\n"
-        "{\n"
-        "     background: none;\n"
-        "}\n"
-        "QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal\n"
-        "{\n"
-        "     background: none;\n"
-        "}\n"
-        " QScrollBar:vertical {\n"
-        "	border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    width: 14px;\n"
-        "    margin: 21px 0 21px 0;\n"
-        "	border-radius: 0px;\n"
-        " }\n"
-        " QScrollBar::handle:vertical {	\n"
-        "	background: rgb(85, 170, 255);\n"
-        "    min-height: 25px;\n"
-        "	border-radius: 7px\n"
-        " }\n"
-        " QScrollBar::add-line:vertical {\n"
-        "     border: none;\n"
-        "    background: rgb(55, 63, 77);\n"
-        "     height: 20px;\n"
-        "	border-bottom-left-radius: 7px;\n"
-        "    border-bottom-right-radius: 7px;\n"
-        "     subcontrol-position: bottom;\n"
-        "     subcontrol-origin: margin;\n"
-        " }\n"
-        " QScrollBar::sub-line:vertical {\n"
-        "	border: none;\n"
-        "    background: rgb(55, 63"
-        ", 77);\n"
-        "     height: 20px;\n"
-        "	border-top-left-radius: 7px;\n"
-        "    border-top-right-radius: 7px;\n"
-        "     subcontrol-position: top;\n"
-        "     subcontrol-origin: margin;\n"
-        " }\n"
-        " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-        "     background: none;\n"
-        " }\n"
-        "\n"
-        " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-        "     background: none;\n"
-        " }\n"
-        "\n"
-        "/* CHECKBOX */\n"
-        "QCheckBox::indicator {\n"
-        "    border: 3px solid rgb(52, 59, 72);\n"
-        "	width: 15px;\n"
-        "	height: 15px;\n"
-        "	border-radius: 10px;\n"
-        "    background: rgb(44, 49, 60);\n"
-        "}\n"
-        "QCheckBox::indicator:hover {\n"
-        "    border: 3px solid rgb(58, 66, 81);\n"
-        "}\n"
-        "QCheckBox::indicator:checked {\n"
-        "    background: 3px solid rgb(52, 59, 72);\n"
-        "	border: 3px solid rgb(52, 59, 72);	\n"
-        "	background-image: url(:/16x16/icons/16x16/cil-check-alt.png);\n"
-        "}\n"
-        "\n"
-        "/* RADIO BUTTON */\n"
-        "QRadioButton::indicator {\n"
-        "    border: 3px solid rgb(52, 59, 72);\n"
-        "	width: 15px;\n"
-        "	height: 15px;\n"
-        "	border-radius"
-        ": 10px;\n"
-        "    background: rgb(44, 49, 60);\n"
-        "}\n"
-        "QRadioButton::indicator:hover {\n"
-        "    border: 3px solid rgb(58, 66, 81);\n"
-        "}\n"
-        "QRadioButton::indicator:checked {\n"
-        "    background: 3px solid rgb(94, 106, 130);\n"
-        "	border: 3px solid rgb(52, 59, 72);	\n"
-        "}\n"
-        "\n"
-        "/* COMBOBOX */\n"
-        "QComboBox{\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	border-radius: 5px;\n"
-        "	border: 2px solid rgb(27, 29, 35);\n"
-        "	padding: 5px;\n"
-        "	padding-left: 10px;\n"
-        "}\n"
-        "QComboBox:hover{\n"
-        "	border: 2px solid rgb(64, 71, 88);\n"
-        "}\n"
-        "QComboBox::drop-down {\n"
-        "	subcontrol-origin: padding;\n"
-        "	subcontrol-position: top right;\n"
-        "	width: 25px; \n"
-        "	border-left-width: 3px;\n"
-        "	border-left-color: rgba(39, 44, 54, 150);\n"
-        "	border-left-style: solid;\n"
-        "	border-top-right-radius: 3px;\n"
-        "	border-bottom-right-radius: 3px;	\n"
-        "	background-image: url(:/16x16/icons/16x16/cil-arrow-bottom.png);\n"
-        "	background-position: center;\n"
-        "	background-repeat: no-reperat;\n"
-        " }\n"
-        "QComboBox QAbstractItemView {\n"
-        "	color: rgb("
-        "85, 170, 255);	\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	padding: 10px;\n"
-        "	selection-background-color: rgb(39, 44, 54);\n"
-        "}\n"
-        "\n"
-        "/* SLIDERS */\n"
-        "QSlider::groove:horizontal {\n"
-        "    border-radius: 9px;\n"
-        "    height: 18px;\n"
-        "	margin: 0px;\n"
-        "	background-color: rgb(52, 59, 72);\n"
-        "}\n"
-        "QSlider::groove:horizontal:hover {\n"
-        "	background-color: rgb(55, 62, 76);\n"
-        "}\n"
-        "QSlider::handle:horizontal {\n"
-        "    background-color: rgb(85, 170, 255);\n"
-        "    border: none;\n"
-        "    height: 18px;\n"
-        "    width: 18px;\n"
-        "    margin: 0px;\n"
-        "	border-radius: 9px;\n"
-        "}\n"
-        "QSlider::handle:horizontal:hover {\n"
-        "    background-color: rgb(105, 180, 255);\n"
-        "}\n"
-        "QSlider::handle:horizontal:pressed {\n"
-        "    background-color: rgb(65, 130, 195);\n"
-        "}\n"
-        "\n"
-        "QSlider::groove:vertical {\n"
-        "    border-radius: 9px;\n"
-        "    width: 18px;\n"
-        "    margin: 0px;\n"
-        "	background-color: rgb(52, 59, 72);\n"
-        "}\n"
-        "QSlider::groove:vertical:hover {\n"
-        "	background-color: rgb(55, 62, 76);\n"
-        "}\n"
-        "QSlider::handle:verti"
-        "cal {\n"
-        "    background-color: rgb(85, 170, 255);\n"
-        "	border: none;\n"
-        "    height: 18px;\n"
-        "    width: 18px;\n"
-        "    margin: 0px;\n"
-        "	border-radius: 9px;\n"
-        "}\n"
-        "QSlider::handle:vertical:hover {\n"
-        "    background-color: rgb(105, 180, 255);\n"
-        "}\n"
-        "QSlider::handle:vertical:pressed {\n"
-        "    background-color: rgb(65, 130, 195);\n"
-        "}\n"
-        "\n"
-        ""
-    )
+    style_frame_main = f"""
+    /* ######### LINE EDIT ######### */
+    QLineEdit {{
+        background-color: rgb{COLOR_01};
+        border-radius: 5px;
+        border: 2px solid rgb{COLOR_01};
+        padding-left: 10px;
+    }}
+    QLineEdit:hover {{
+        border: 2px solid rgb{COLOR_02};
+    }}
+    QLineEdit:focus {{
+        border: 2px solid rgb{COLOR_07};
+    }}
+    
+    /* ######### SCROLL BARS ######### */
+    QScrollBar:horizontal {{
+        border: none;
+        background: rgb{COLOR_08};
+        height: 14px;
+        margin: 0px 21px 0 21px;
+        border-radius: 0px;
+    }}
+    QScrollBar::handle:horizontal {{
+        background: rgb{COLOR_05};
+        min-width: 25px;
+        border-radius: 7px
+    }}
+    QScrollBar::add-line:horizontal {{
+        border: none;
+        background: rgb{COLOR_09};
+        width: 20px;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }}
+    QScrollBar::sub-line:horizontal {{
+        border: none;
+        background: rgb{COLOR_09};
+        width: 20px;
+    
+        border-top-left-radius: 7px;
+        border-bottom-left-radius: 7px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }}
+    QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {{
+            background: none;
+    }}
+    QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {{
+            background: none;
+    }}
+    QScrollBar:vertical {{
+        border: none;
+        background: rgb{COLOR_08};
+        width: 14px;
+        margin: 21px 0 21px 0;
+        border-radius: 0px;
+    }}
+    QScrollBar::handle:vertical {{	
+        background: rgb{COLOR_05};
+        min-height: 25px;
+        border-radius: 7px
+    }}
+    QScrollBar::add-line:vertical {{
+        border: none;
+        background: rgb{COLOR_09};
+        height: 20px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }}
+    QScrollBar::sub-line:vertical {{
+        border: none;
+        background: rgb{COLOR_09};
+        height: 20px;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }}
+    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {{
+        background: none;
+    }}
+    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {{
+        background: none;
+    }}
+    
+    /* ######### CHECKBOX ######### */
+    QCheckBox::indicator {{
+        border: 3px solid rgb{COLOR_08};
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+        background: rgb{COLOR_04};
+    }}
+    QCheckBox::indicator:hover {{
+        border: 3px solid rgb{COLOR_10};
+    }}
+    QCheckBox::indicator:checked {{
+        background: 3px solid rgb{COLOR_08};
+        border: 3px solid rgb{COLOR_08};	
+        background-image: url(:/16x16/icons/16x16/cil-check-alt.png);
+    }}
+    
+    /* ######### RADIO BUTTON ######### */
+    QRadioButton::indicator {{
+        border: 3px solid rgb{COLOR_08};
+        width: 15px;
+        height: 15px;
+        border-radius: 10px;
+        background: rgb{COLOR_04};
+    }}
+    QRadioButton::indicator:hover {{
+        border: 3px solid rgb{COLOR_10};
+    }}
+    QRadioButton::indicator:checked {{
+        background: 3px solid rgb{COLOR_11};
+        border: 3px solid rgb{COLOR_08};	
+    }}
+    
+    /* ######### COMBOBOX ######### */
+    QComboBox{{
+        background-color: rgb{COLOR_01};
+        border-radius: 5px;
+        border: 2px solid rgb{COLOR_01};
+        padding: 5px;
+        padding-left: 10px;
+    }}
+    QComboBox:hover{{
+        border: 2px solid rgb{COLOR_02};
+    }}
+    QComboBox::drop-down {{
+        subcontrol-origin: padding;
+        subcontrol-position: top right;
+        width: 25px; 
+        border-left-width: 3px;
+        border-left-color: rgba{COLOR_xxa};
+        border-left-style: solid;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;	
+        background-image: url(:/16x16/icons/16x16/cil-arrow-bottom.png);
+        background-position: center;
+        background-repeat: no-reperat;
+    }}
+    QComboBox QAbstractItemView {{
+        color: rgb{COLOR_05};	
+        background-color: rgb{COLOR_01};
+        padding: 10px;
+        selection-background-color: rgb{COLOR_12};
+    }}
+    
+    /* ######### SLIDERS ######### */
+    QSlider::groove:horizontal {{
+        border-radius: 9px;
+        height: 18px;
+        margin: 0px;
+        background-color: rgb{COLOR_08};
+    }}
+    QSlider::groove:horizontal:hover {{
+        background-color: rgb{COLOR_13};
+    }}
+    QSlider::handle:horizontal {{
+        background-color: rgb{COLOR_05};
+        border: none;
+        height: 18px;
+        width: 18px;
+        margin: 0px;
+        border-radius: 9px;
+    }}
+    QSlider::handle:horizontal:hover {{
+        background-color: rgb{COLOR_14};
+    }}
+    QSlider::handle:horizontal:pressed {{
+        background-color: rgb{COLOR_15};
+    }}
+    
+    QSlider::groove:vertical {{
+        border-radius: 9px;
+        width: 18px;
+        margin: 0px;
+        background-color: rgb{COLOR_08};
+    }}
+    QSlider::groove:vertical:hover {{
+        background-color: rgb{COLOR_13};
+    }}
+    QSlider::handle:vertical {{
+        background-color: rgb{COLOR_05};
+        border: none;
+        height: 18px;
+        width: 18px;
+        margin: 0px;
+        border-radius: 9px;
+    }}
+    QSlider::handle:vertical:hover {{
+        background-color: rgb{COLOR_14};
+    }}
+    QSlider::handle:vertical:pressed {{
+        background-color: rgb{COLOR_15};
+    }}
+    
+    """
+    ########################################################
+    style_btn_toggle_menu = f"""
+    QPushButton {{
+        background-image: url(:/24x24/icons/24x24/cil-menu.png);
+        background-position: center;
+        background-repeat: no-reperat;
+        border: none;
+        background-color: rgb{COLOR_01};
+    }}
+    QPushButton:hover {{
+        background-color: rgb{COLOR_03};
+    }}
+    QPushButton:pressed {{
+        background-color: rgb{COLOR_05};
+    }}
+    """
 
-    style_btn_toggle_menu = (
-        u"QPushButton {\n"
-        "	background-image: url(:/24x24/icons/24x24/cil-menu.png);\n"
-        "	background-position: center;\n"
-        "	background-repeat: no-reperat;\n"
-        "	border: none;\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "	background-color: rgb(33, 37, 43);\n"
-        "}\n"
-        "QPushButton:pressed {	\n"
-        "	background-color: rgb(85, 170, 255);\n"
-        "}"
-    )
+    style_frame_toggle = f"background-color: rgb{COLOR_01};"
 
-    style_frame_toggle = u"background-color: rgb(27, 29, 35);"
+    style_btn_maximize_restore = f"""
+    QPushButton {{
+    	border: none;
+    	background-color: transparent;
+    }}
+    QPushButton:hover {{
+    	background-color: rgb{COLOR_08};
+    }}
+    QPushButton:pressed {{
+    	background-color: rgb{COLOR_05};
+    }}
+    """
 
-    style_btn_maximize_restore = (
-        u"QPushButton {	\n"
-        "	border: none;\n"
-        "	background-color: transparent;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "	background-color: rgb(52, 59, 72);\n"
-        "}\n"
-        "QPushButton:pressed {	\n"
-        "	background-color: rgb(85, 170, 255);\n"
-        "}"
-    )
-
-    style_btn_close = (
-        u"QPushButton {	\n"
-        "	border: none;\n"
-        "	background-color: transparent;\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "	background-color: rgb(52, 59, 72);\n"
-        "}\n"
-        "QPushButton:pressed {	\n"
-        "	background-color: rgb(85, 170, 255);\n"
-        "}"
-    )
+    style_btn_close = f"""
+    QPushButton {{
+    	border: none;
+    	background-color: transparent;
+    }}
+    QPushButton:hover {{
+    	background-color: rgb{COLOR_08};
+    }}
+    QPushButton:pressed {{
+    	background-color: rgb{COLOR_05};
+    }}
+    """
 
     # QFrame
-    style_frame_top_info = u"background-color: rgb(39, 44, 54);"
+    style_frame_top_info = f"background-color: rgb{COLOR_12};"
 
     # QLabel
-    style_label_top_info = u"color: rgb(98, 103, 111); "
+    style_label_top_info = f"color: rgb(98, 103, 111); "
 
     ###################################################
 
-    style_label_user_icon = (
-        u"QLabel {\n"
-        "	border-radius: 30px;\n"
-        "	background-color: rgb(44, 49, 60);\n"
-        "	border: 5px solid rgb(39, 44, 54);\n"
-        "	background-position: center;\n"
-        "	background-repeat: no-repeat;\n"
-        "}"
-    )
+    style_label_user_icon = f"""
+    QLabel {{
+        border-radius: 30px;
+        background-color: rgb{COLOR_04};
+        border: 5px solid rgb{COLOR_12};
+        background-position: center;
+        background-repeat: no-repeat;
+    }}
+    """
 
-    style_frame_content_right = u"background-color: rgb(44, 49, 60);"
+    style_frame_content_right = f"background-color: rgb{COLOR_04};"
 
     # QFrame
-    style_frame = u"border-radius: 5px;"
+    style_frame = "border-radius: 5px;"
     style_frame_div_content_1 = (
-        u"background-color: rgb(41, 45, 56);\n" "border-radius: 5px;\n" ""
+        f"background-color: rgb(41, 45, 56); border-radius: 5px;"
     )
 
-    style_frame_title_wid_1 = u"background-color: rgb(39, 44, 54);"
+    style_frame_title_wid_1 = f"background-color: rgb{COLOR_12};"
 
     # QLineEdit
-    style_lineEdit = (
-        u"QLineEdit {\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	border-radius: 5px;\n"
-        "	border: 2px solid rgb(27, 29, 35);\n"
-        "	padding-left: 10px;\n"
-        "}\n"
-        "QLineEdit:hover {\n"
-        "	border: 2px solid rgb(64, 71, 88);\n"
-        "}\n"
-        "QLineEdit:focus {\n"
-        "	border: 2px solid rgb(91, 101, 124);\n"
-        "}"
-    )
+    style_lineEdit = f"""
+    QLineEdit {{
+    	background-color: rgb{COLOR_01};
+    	border-radius: 5px;
+    	border: 2px solid rgb{COLOR_01};
+    	padding-left: 10px;
+    }}
+    QLineEdit:hover {{
+    	border: 2px solid rgb{COLOR_02};
+    }}
+    QLineEdit:focus {{
+    	border: 2px solid rgb{COLOR_07};
+    }}
+    """
 
-    style_pushButton = (
-        u"QPushButton {\n"
-        "	border: 2px solid rgb(52, 59, 72);\n"
-        "	border-radius: 5px;	\n"
-        "	background-color: rgb(52, 59, 72);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "	background-color: rgb(57, 65, 80);\n"
-        "	border: 2px solid rgb(61, 70, 86);\n"
-        "}\n"
-        "QPushButton:pressed {	\n"
-        "	background-color: rgb(35, 40, 49);\n"
-        "	border: 2px solid rgb(43, 50, 61);\n"
-        "}"
-    )
+    style_pushButton = f"""
+    QPushButton {{
+    	border: 2px solid rgb{COLOR_08};
+    	border-radius: 5px;	
+    	background-color: rgb{COLOR_08};
+    }}
+    QPushButton:hover {{
+    	background-color: rgb(57, 65, 80);
+    	border: 2px solid rgb(61, 70, 86);
+    }}
+    QPushButton:pressed {{
+    	background-color: rgb(35, 40, 49);
+    	border: 2px solid rgb(43, 50, 61);
+    }}
+    """
 
-    style_labelVersion_3 = u"color: rgb(98, 103, 111);"
+    style_labelVersion_3 = f"color: rgb(98, 103, 111);"
 
-    style_frame_2 = u"background-color: rgb(39, 44, 54);\n" "border-radius: 5px;"
+    style_frame_2 = f"background-color: rgb{COLOR_12}; border-radius: 5px;"
 
-    style_verticalScrollBar = (
-        u" QScrollBar:vertical {\n"
-        "	border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    width: 14px;\n"
-        "    margin: 21px 0 21px 0;\n"
-        "	border-radius: 0px;\n"
-        " }"
-    )
+    style_verticalScrollBar = f"""
+    QScrollBar:vertical {{
+    	border: none;
+        background: rgb{COLOR_08};
+        width: 14px;
+        margin: 21px 0 21px 0;
+    	border-radius: 0px;
+    }}
+    """
 
-    style_scrollArea = (
-        u"QScrollArea {\n"
-        "	border: none;\n"
-        "	border-radius: 0px;\n"
-        "}\n"
-        "QScrollBar:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    height: 14px;\n"
-        "    margin: 0px 21px 0 21px;\n"
-        "	border-radius: 0px;\n"
-        "}\n"
-        " QScrollBar:vertical {\n"
-        "	border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    width: 14px;\n"
-        "    margin: 21px 0 21px 0;\n"
-        "	border-radius: 0px;\n"
-        " }\n"
-        ""
-    )
+    style_scrollArea = f"""
+    QScrollArea {{
+        border: none;
+    	border-radius: 0px;
+    }}
+    QScrollBar:horizontal {{
+        border: none;
+        background: rgb{COLOR_08};
+        height: 14px;
+        margin: 0px 21px 0 21px;
+    	border-radius: 0px;
+    }}
+    QScrollBar:vertical {{
+    	border: none;
+        background: rgb{COLOR_08};
+        width: 14px;
+        margin: 21px 0 21px 0;
+    	border-radius: 0px;
+    }}
+    """
 
-    style_plainTextEdit = (
-        u"QPlainTextEdit {\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	border-radius: 5px;\n"
-        "	padding: 10px;\n"
-        "}\n"
-        "QPlainTextEdit:hover {\n"
-        "	border: 2px solid rgb(64, 71, 88);\n"
-        "}\n"
-        "QPlainTextEdit:focus {\n"
-        "	border: 2px solid rgb(91, 101, 124);\n"
-        "}"
-    )
+    style_plainTextEdit = f"""
+    QPlainTextEdit {{
+    	background-color: rgb{COLOR_01};
+    	border-radius: 5px;
+    	padding: 10px;
+    }}
+    QPlainTextEdit:hover {{
+    	border: 2px solid rgb{COLOR_02};
+    }}
+    QPlainTextEdit:focus {{
+    	border: 2px solid rgb{COLOR_07};
+    }}
+    """
 
-    style_comboBox = (
-        u"QComboBox{\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	border-radius: 5px;\n"
-        "	border: 2px solid rgb(27, 29, 35);\n"
-        "	padding: 5px;\n"
-        "	padding-left: 10px;\n"
-        "}\n"
-        "QComboBox:hover{\n"
-        "	border: 2px solid rgb(64, 71, 88);\n"
-        "}\n"
-        "QComboBox QAbstractItemView {\n"
-        "	color: rgb(85, 170, 255);	\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	padding: 10px;\n"
-        "	selection-background-color: rgb(39, 44, 54);\n"
-        "}"
-    )
+    style_comboBox = f"""
+    QComboBox{{
+    	background-color: rgb{COLOR_01};
+    	border-radius: 5px;
+    	border: 2px solid rgb{COLOR_01};
+    	padding: 5px;
+    	padding-left: 10px;
+    }}
+    QComboBox:hover{{
+    	border: 2px solid rgb{COLOR_02};
+    }}
+    QComboBox QAbstractItemView {{
+    	color: rgb{COLOR_05};	
+    	background-color: rgb{COLOR_01};
+    	padding: 10px;
+    	selection-background-color: rgb{COLOR_12};
+    }}
+    """
 
-    style_horizontalScrollBar = (
-        u"QScrollBar:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    height: 14px;\n"
-        "    margin: 0px 21px 0 21px;\n"
-        "	border-radius: 0px;\n"
-        "}\n"
-        ""
-    )
+    style_horizontalScrollBar = f"""
+    QScrollBar:horizontal {{
+        border: none;
+        background: rgb{COLOR_08};
+        height: 14px;
+        margin: 0px 21px 0 21px;
+    	border-radius: 0px;
+    }}
+    """
 
-    style_commandLinkButton = (
-        u"QCommandLinkButton {	\n"
-        "	color: rgb(85, 170, 255);\n"
-        "	border-radius: 5px;\n"
-        "	padding: 5px;\n"
-        "}\n"
-        "QCommandLinkButton:hover {	\n"
-        "	color: rgb(210, 210, 210);\n"
-        "	background-color: rgb(44, 49, 60);\n"
-        "}\n"
-        "QCommandLinkButton:pressed {	\n"
-        "	color: rgb(210, 210, 210);\n"
-        "	background-color: rgb(52, 58, 71);\n"
-        "}"
-    )
+    style_commandLinkButton = f"""
+    QCommandLinkButton {{
+    	color: rgb{COLOR_05};
+    	border-radius: 5px;
+    	padding: 5px;
+    }}
+    QCommandLinkButton:hover {{
+    	color: rgb(210, 210, 210);
+    	background-color: rgb{COLOR_04};
+    }}
+    QCommandLinkButton:pressed {{
+    	color: rgb(210, 210, 210);
+    	background-color: rgb(52, 58, 71);
+    }}
+    """
 
-    style_tableWidget = (
-        u"QTableWidget {	\n"
-        "	background-color: rgb(39, 44, 54);\n"
-        "	padding: 10px;\n"
-        "	border-radius: 5px;\n"
-        "	gridline-color: rgb(44, 49, 60);\n"
-        "	border-bottom: 1px solid rgb(44, 49, 60);\n"
-        "}\n"
-        "QTableWidget::item{\n"
-        "	border-color: rgb(44, 49, 60);\n"
-        "	padding-left: 5px;\n"
-        "	padding-right: 5px;\n"
-        "	gridline-color: rgb(44, 49, 60);\n"
-        "}\n"
-        "QTableWidget::item:selected{\n"
-        "	background-color: rgb(85, 170, 255);\n"
-        "}\n"
-        "QScrollBar:horizontal {\n"
-        "    border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    height: 14px;\n"
-        "    margin: 0px 21px 0 21px;\n"
-        "	border-radius: 0px;\n"
-        "}\n"
-        " QScrollBar:vertical {\n"
-        "	border: none;\n"
-        "    background: rgb(52, 59, 72);\n"
-        "    width: 14px;\n"
-        "    margin: 21px 0 21px 0;\n"
-        "	border-radius: 0px;\n"
-        " }\n"
-        "QHeaderView::section{\n"
-        "	Background-color: rgb(39, 44, 54);\n"
-        "	max-width: 30px;\n"
-        "	border: 1px solid rgb(44, 49, 60);\n"
-        "	border-style: none;\n"
-        "    border-bottom: 1px solid rgb(44, 49, 60);\n"
-        "    border-right: 1px solid rgb(44, 49, 60);\n"
-        "}\n"
-        ""
-        "QTableWidget::horizontalHeader {	\n"
-        "	background-color: rgb(81, 255, 0);\n"
-        "}\n"
-        "QHeaderView::section:horizontal\n"
-        "{\n"
-        "    border: 1px solid rgb(32, 34, 42);\n"
-        "	background-color: rgb(27, 29, 35);\n"
-        "	padding: 3px;\n"
-        "	border-top-left-radius: 7px;\n"
-        "    border-top-right-radius: 7px;\n"
-        "}\n"
-        "QHeaderView::section:vertical\n"
-        "{\n"
-        "    border: 1px solid rgb(44, 49, 60);\n"
-        "}\n"
-        ""
-    )
+    style_tableWidget = f"""
+    QTableWidget {{	
+    	background-color: rgb{COLOR_12};
+    	padding: 10px;
+    	border-radius: 5px;
+    	gridline-color: rgb{COLOR_04};
+    	border-bottom: 1px solid rgb{COLOR_04};
+    }}
+    QTableWidget::item{{
+    	border-color: rgb{COLOR_04};
+    	padding-left: 5px;
+    	padding-right: 5px;
+    	gridline-color: rgb{COLOR_04};
+    }}
+    QTableWidget::item:selected{{
+    	background-color: rgb{COLOR_05};
+    }}
+    QScrollBar:horizontal {{
+        border: none;
+        background: rgb{COLOR_08};
+        height: 14px;
+        margin: 0px 21px 0 21px;
+    	border-radius: 0px;
+    }}
+    QScrollBar:vertical {{
+    	border: none;
+        background: rgb{COLOR_08};
+        width: 14px;
+        margin: 21px 0 21px 0;
+    	border-radius: 0px;
+    }}
+    QHeaderView::section{{
+    	Background-color: rgb{COLOR_12};
+    	max-width: 30px;
+    	border: 1px solid rgb{COLOR_04};
+    	border-style: none;
+        border-bottom: 1px solid rgb{COLOR_04};
+        border-right: 1px solid rgb{COLOR_04};
+    }}
+    
+    QTableWidget::horizontalHeader {{
+    	background-color: rgb(81, 255, 0);
+    }}
+    QHeaderView::section:horizontal
+    {{
+        border: 1px solid rgb(32, 34, 42);
+    	background-color: rgb{COLOR_01};
+    	padding: 3px;
+    	border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+    }}
+    QHeaderView::section:vertical
+    {{
+        border: 1px solid rgb{COLOR_04};
+    }}
+    """
 
-    style_frame_grip = u"background-color: rgb(33, 37, 43);"
-    style_label_credits = u"color: rgb(98, 103, 111);"
+    style_frame_grip = f"background-color: rgb{COLOR_03};"
+    style_label_credits = f"color: rgb(98, 103, 111);"
 
-    style_label_version = u"color: rgb(98, 103, 111);"
-    style_frame_size_grip = (
-        u"QSizeGrip {\n"
-        "	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);\n"
-        "	background-position: center;\n"
-        "	background-repeat: no-reperat;\n"
-        "}"
-    )
+    style_label_version = f"color: rgb(98, 103, 111);"
+    style_frame_size_grip = f"""
+    QSizeGrip {{
+    	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);
+    	background-position: center;
+    	background-repeat: no-reperat;
+    }}
+    """
