@@ -16,39 +16,43 @@
 COLOR_01 = (27, 29, 35)
 COLOR_01a = (27, 29, 35, 160)
 
-COLOR_02 = (64, 71, 88)
+COLOR_28 = (32, 34, 42)
 COLOR_03 = (33, 37, 43)
-COLOR_04 = (44, 49, 60)
-COLOR_05 = (85, 170, 255)
+COLOR_32 = (35, 40, 49)
+
+COLOR_12 = (39, 44, 54)
+COLOR_12a = (39, 44, 54, 150)
+
 COLOR_06 = (40, 40, 40)
-COLOR_07 = (91, 101, 124)
+COLOR_26 = (41, 45, 56)
+COLOR_33 = (43, 50, 61)
+COLOR_04 = (44, 49, 60)
+
 
 COLOR_08 = (52, 59, 72)
 COLOR_25 = (52, 58, 71)
 COLOR_09 = (55, 63, 77)
-
-COLOR_10 = (58, 66, 81)
-COLOR_11 = (94, 106, 130)
-COLOR_12 = (39, 44, 54)
-
 COLOR_13 = (55, 62, 76)
-COLOR_14 = (105, 180, 255)
+COLOR_30 = (57, 65, 80)
+COLOR_10 = (58, 66, 81)
+COLOR_31 = (61, 70, 86)
+
+COLOR_02 = (64, 71, 88)
+
 COLOR_15 = (65, 130, 195)
 
-COLOR_26 = (41, 45, 56)
-
-COLOR_27 = (98, 103, 111)
-COLOR_28 = (32, 34, 42)
 COLOR_29 = (81, 255, 0)
 
-COLOR_30 = (57, 65, 80)
-COLOR_31 = (61, 70, 86)
-COLOR_32 = (35, 40, 49)
-COLOR_33 = (43, 50, 61)
+COLOR_05 = (85, 170, 255)
+
+COLOR_07 = (91, 101, 124)
+COLOR_11 = (94, 106, 130)
+COLOR_27 = (98, 103, 111)
+
+COLOR_14 = (105, 180, 255)
 
 COLOR_99 = (210, 210, 210)
 
-COLOR_xxa = (39, 44, 54, 150)
 
 
 class Style:
@@ -234,7 +238,7 @@ class Style:
         subcontrol-position: top right;
         width: 25px; 
         border-left-width: 3px;
-        border-left-color: rgba{COLOR_xxa};
+        border-left-color: rgba{COLOR_12a};
         border-left-style: solid;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;	
