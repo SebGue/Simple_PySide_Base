@@ -1,7 +1,7 @@
 ################################################################################
 ##
 ## BY: WANDERSON M.PIMENTA
-## PROJECT MADE WITH: Qt Designer and PySide2
+## PROJECT MADE WITH: Qt Designer and PySide6
 ## V: 1.0.0
 ##
 ## This project can be used freely for all uses, as long as they maintain the
@@ -16,13 +16,42 @@
 
 import sys
 import platform
-from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
-from PySide2.QtWidgets import *
+from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtCore import (
+    QCoreApplication,
+    QPropertyAnimation,
+    QDate,
+    QDateTime,
+    QMetaObject,
+    QObject,
+    QPoint,
+    QRect,
+    QSize,
+    QTime,
+    QUrl,
+    Qt,
+    QEvent,
+)
+from PySide6.QtGui import (
+    QBrush,
+    QColor,
+    QConicalGradient,
+    QCursor,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QKeySequence,
+    QLinearGradient,
+    QPalette,
+    QPainter,
+    QPixmap,
+    QRadialGradient,
+)
+from PySide6.QtWidgets import *
 
 # GUI FILE
 from app_modules import *
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,8 +60,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         ## PRINT ==> SYSTEM
-        print('System: ' + platform.system())
-        print('Version: ' +platform.release())
+        print("System: " + platform.system())
+        print("Version: " + platform.release())
 
         ########################################################################
         ## START - WINDOW ATTRIBUTES
@@ -43,9 +72,9 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         ## SET ==> WINDOW TITLE
-        self.setWindowTitle('Main Window - Python Base')
-        UIFunctions.labelTitle(self, 'Main Window - Python Base')
-        UIFunctions.labelDescription(self, 'Set text')
+        self.setWindowTitle("Main Window - Python Base")
+        UIFunctions.labelTitle(self, "Main Window - Python Base")
+        UIFunctions.labelDescription(self, "Set text")
         ## ==> END ##
 
         ## WINDOW SIZE ==> DEFAULT SIZE
@@ -59,14 +88,34 @@ class MainWindow(QMainWindow):
         ########################################################################
 
         ## ==> TOGGLE MENU SIZE
-        self.ui.btn_toggle_menu.clicked.connect(lambda: UIFunctions.toggleMenu(self, 220, True))
+        self.ui.btn_toggle_menu.clicked.connect(
+            lambda: UIFunctions.toggleMenu(self, 220, True)
+        )
         ## ==> END ##
 
         ## ==> ADD CUSTOM MENUS
         self.ui.stackedWidget.setMinimumWidth(20)
-        UIFunctions.addNewMenu(self, "HOME", "btn_home", "url(:/16x16/icons/16x16/cil-home.png)", True)
-        UIFunctions.addNewMenu(self, "Add User", "btn_new_user", "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
-        UIFunctions.addNewMenu(self, "Custom Widgets", "btn_widgets", "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
+        UIFunctions.addNewMenu(
+            self,
+            "HOME",
+            "btn_home",
+            "url(:/16x16/icons/16x16/cil-home.png)",
+            True,
+        )
+        UIFunctions.addNewMenu(
+            self,
+            "Add User",
+            "btn_new_user",
+            "url(:/16x16/icons/16x16/cil-user-follow.png)",
+            True,
+        )
+        UIFunctions.addNewMenu(
+            self,
+            "Custom Widgets",
+            "btn_widgets",
+            "url(:/16x16/icons/16x16/cil-equalizer.png)",
+            False,
+        )
         ## ==> END ##
 
         # START MENU => SELECTION
@@ -78,9 +127,8 @@ class MainWindow(QMainWindow):
         ## ==> END ##
 
         ## USER ICON ==> SHOW HIDE
-        UIFunctions.userIcon(self, "WM", "", True)
+        UIFunctions.userIcon(self, "SG", "", True)
         ## ==> END ##
-
 
         ## ==> MOVE WINDOW / MAXIMIZE / RESTORE
         ########################################################################
@@ -108,9 +156,6 @@ class MainWindow(QMainWindow):
         ## END - WINDOW ATTRIBUTES
         ############################## ---/--/--- ##############################
 
-
-
-
         ########################################################################
         #                                                                      #
         ## START -------------- WIDGETS FUNCTIONS/PARAMETERS ---------------- ##
@@ -118,21 +163,18 @@ class MainWindow(QMainWindow):
         ## ==> USER CODES BELLOW                                              ##
         ########################################################################
 
-
-
         ## ==> QTableWidget RARAMETERS
         ########################################################################
-        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(
+            QtWidgets.QHeaderView.Stretch
+        )
         ## ==> END ##
-
-
 
         ########################################################################
         #                                                                      #
         ## END --------------- WIDGETS FUNCTIONS/PARAMETERS ----------------- ##
         #                                                                      #
         ############################## ---/--/--- ##############################
-
 
         ## SHOW ==> MAIN WINDOW
         ########################################################################
@@ -148,6 +190,7 @@ class MainWindow(QMainWindow):
 
         # PAGE HOME
         if btnWidget.objectName() == "btn_home":
+            print('btn_home')
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
             UIFunctions.resetStyle(self, "btn_home")
             UIFunctions.labelPage(self, "Home")
@@ -178,6 +221,7 @@ class MainWindow(QMainWindow):
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
             print("pos: ", event.pos())
+
     ## ==> END ##
 
     ## EVENT ==> MOUSE CLICK
@@ -185,17 +229,19 @@ class MainWindow(QMainWindow):
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
         if event.buttons() == Qt.LeftButton:
-            print('Mouse click: LEFT CLICK')
+            print("Mouse click: LEFT CLICK")
         if event.buttons() == Qt.RightButton:
-            print('Mouse click: RIGHT CLICK')
-        if event.buttons() == Qt.MidButton:
-            print('Mouse click: MIDDLE BUTTON')
+            print("Mouse click: RIGHT CLICK")
+        if event.buttons() == Qt.MiddleButton:
+            print("Mouse click: MIDDLE BUTTON")
+
     ## ==> END ##
 
     ## EVENT ==> KEY PRESSED
     ########################################################################
     def keyPressEvent(self, event):
-        print('Key: ' + str(event.key()) + ' | Text Press: ' + str(event.text()))
+        print("Key: " + str(event.key()) + " | Text Press: " + str(event.text()))
+
     ## ==> END ##
 
     ## EVENT ==> RESIZE EVENT
@@ -205,16 +251,18 @@ class MainWindow(QMainWindow):
         return super(MainWindow, self).resizeEvent(event)
 
     def resizeFunction(self):
-        print('Height: ' + str(self.height()) + ' | Width: ' + str(self.width()))
+        print("Height: " + str(self.height()) + " | Width: " + str(self.width()))
+
     ## ==> END ##
 
     ########################################################################
     ## END ==> APP EVENTS
     ############################## ---/--/--- ##############################
 
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
-    QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
+    QtGui.QFontDatabase.addApplicationFont("fonts/segoeui.ttf")
+    QtGui.QFontDatabase.addApplicationFont("fonts/segoeuib.ttf")
     window = MainWindow()
     sys.exit(app.exec_())
