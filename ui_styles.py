@@ -24,6 +24,7 @@ COLOR_06 = (40, 40, 40)
 COLOR_07 = (91, 101, 124)
 
 COLOR_08 = (52, 59, 72)
+COLOR_25 = (52, 58, 71)
 COLOR_09 = (55, 63, 77)
 
 COLOR_10 = (58, 66, 81)
@@ -34,6 +35,18 @@ COLOR_13 = (55, 62, 76)
 COLOR_14 = (105, 180, 255)
 COLOR_15 = (65, 130, 195)
 
+COLOR_26 = (41, 45, 56)
+
+COLOR_27 = (98, 103, 111)
+COLOR_28 = (32, 34, 42)
+COLOR_29 = (81, 255, 0)
+
+COLOR_30 = (57, 65, 80)
+COLOR_31 = (61, 70, 86)
+COLOR_32 = (35, 40, 49)
+COLOR_33 = (43, 50, 61)
+
+COLOR_99 = (210, 210, 210)
 
 COLOR_xxa = (39, 44, 54, 150)
 
@@ -335,7 +348,7 @@ class Style:
     style_frame_top_info = f"background-color: rgb{COLOR_12};"
 
     # QLabel
-    style_label_top_info = f"color: rgb(98, 103, 111); "
+    style_label_top_info = f"color: rgb{COLOR_27}; "
 
     ###################################################
 
@@ -353,9 +366,10 @@ class Style:
 
     # QFrame
     style_frame = "border-radius: 5px;"
-    style_frame_div_content_1 = (
-        f"background-color: rgb(41, 45, 56); border-radius: 5px;"
-    )
+    style_frame_div_content_1 = f"""
+        background-color: rgb{COLOR_26}; 
+        border-radius: 5px;
+    """
 
     style_frame_title_wid_1 = f"background-color: rgb{COLOR_12};"
 
@@ -382,16 +396,16 @@ class Style:
     	background-color: rgb{COLOR_08};
     }}
     QPushButton:hover {{
-    	background-color: rgb(57, 65, 80);
-    	border: 2px solid rgb(61, 70, 86);
+    	background-color: rgb{COLOR_30};
+    	border: 2px solid rgb{COLOR_31};
     }}
     QPushButton:pressed {{
-    	background-color: rgb(35, 40, 49);
-    	border: 2px solid rgb(43, 50, 61);
+    	background-color: rgb{COLOR_32};
+    	border: 2px solid rgb{COLOR_33};
     }}
     """
 
-    style_labelVersion_3 = f"color: rgb(98, 103, 111);"
+    style_labelVersion_3 = f"color: rgb{COLOR_27};"
 
     style_frame_2 = f"background-color: rgb{COLOR_12}; border-radius: 5px;"
 
@@ -476,12 +490,12 @@ class Style:
     	padding: 5px;
     }}
     QCommandLinkButton:hover {{
-    	color: rgb(210, 210, 210);
+    	color: rgb{COLOR_99};
     	background-color: rgb{COLOR_04};
     }}
     QCommandLinkButton:pressed {{
-    	color: rgb(210, 210, 210);
-    	background-color: rgb(52, 58, 71);
+    	color: rgb{COLOR_99};
+    	background-color: rgb{COLOR_25};
     }}
     """
 
@@ -526,11 +540,11 @@ class Style:
     }}
     
     QTableWidget::horizontalHeader {{
-    	background-color: rgb(81, 255, 0);
+    	background-color: rgb{COLOR_29};
     }}
     QHeaderView::section:horizontal
     {{
-        border: 1px solid rgb(32, 34, 42);
+        border: 1px solid rgb{COLOR_28};
     	background-color: rgb{COLOR_01};
     	padding: 3px;
     	border-top-left-radius: 7px;
@@ -543,9 +557,9 @@ class Style:
     """
 
     style_frame_grip = f"background-color: rgb{COLOR_03};"
-    style_label_credits = f"color: rgb(98, 103, 111);"
+    style_label_credits = f"color: rgb{COLOR_27};"
 
-    style_label_version = f"color: rgb(98, 103, 111);"
+    style_label_version = f"color: rgb{COLOR_27};"
     style_frame_size_grip = f"""
     QSizeGrip {{
     	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);
