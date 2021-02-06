@@ -24,9 +24,9 @@ COLOR_05 = (43, 50, 61)
 COLOR_06 = (52, 59, 72)
 COLOR_07 = (58, 66, 81)
 
-COLOR_08 = (65, 130, 195) # slider handle
+COLOR_08 = (65, 130, 195)  # slider handle
 
-COLOR_09 = (81, 255, 0) # light green, table header
+COLOR_09 = (81, 255, 0)  # light green, table header
 
 COLOR_11 = (85, 170, 255)
 
@@ -37,21 +37,21 @@ COLOR_14 = (98, 103, 111)
 COLOR_15 = (105, 180, 255)
 
 
-
-# rgba 
-COLOR_01a = COLOR_01 +  (160,)
+# rgba
+COLOR_01a = COLOR_01 + (160,)
 COLOR_04a = COLOR_04 + (150,)
 
 # similar colors
-COLOR_102 = COLOR_02 # (32, 34, 42)
-COLOR_104 = COLOR_04 # (41, 45, 56) # Frame Div Content
-COLOR_105 = COLOR_05 # (44, 49, 60) 
-COLOR_106 = COLOR_06 # (52, 58, 71)
-COLOR_206 = COLOR_06 # (55, 62, 76)
-COLOR_306 = COLOR_06 # (55, 63, 77) # Scrollbar lines
-COLOR_107 = COLOR_07 # (57, 65, 80) # Push hover
-COLOR_207 = COLOR_07 # (61, 70, 86)
-COLOR_307 = COLOR_07 # (64, 71, 88) Combo hover
+COLOR_102 = COLOR_02  # (32, 34, 42)
+COLOR_104 = COLOR_04  # (41, 45, 56) # Frame Div Content
+COLOR_105 = COLOR_05  # (44, 49, 60)
+COLOR_106 = COLOR_06  # (52, 58, 71)
+COLOR_206 = COLOR_06  # (55, 62, 76)
+COLOR_306 = COLOR_06  # (55, 63, 77) # Scrollbar lines
+COLOR_107 = COLOR_07  # (57, 65, 80) # Push hover
+COLOR_207 = COLOR_07  # (61, 70, 86)
+COLOR_307 = COLOR_07  # (64, 71, 88) Combo hover
+
 
 class Style:
 
@@ -319,6 +319,19 @@ class Style:
     """
 
     style_frame_toggle = f"background-color: rgb{COLOR_01};"
+
+    style_btn_minimize = f"""
+    QPushButton {{
+    	border: none;
+    	background-color: transparent;
+    }}
+    QPushButton:hover {{
+    	background-color: rgb{COLOR_06};
+    }}
+    QPushButton:pressed {{
+    	background-color: rgb{COLOR_11};
+    }}
+    """
 
     style_btn_maximize_restore = f"""
     QPushButton {{
